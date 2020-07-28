@@ -176,7 +176,7 @@ def romparse(l):
     if re.fullmatch(r'^ret #[0-9a-f][0-9a-f]h$',l.s):           # ret I  (hex)
         return 0x200 + int(l.s[5:7],16)
 
-    if re.fullmatch(r'^ret a,#[0-9]{1,3}$',l.s):                # ret I  (dec)
+    if re.fullmatch(r'^ret #[0-9]{1,3}$',l.s):                  # ret I  (dec)
         return 0x200 + int(l.s[5:],10)
 
     if l.s == 'reti':                                           # reti
@@ -407,10 +407,10 @@ var = {
     'tm3ct':'io33h',
     'tm3s':'io34h',
     'tm3b':'io35h',
-    'Z':'io00h.0',        # flag bits
-    'C':'io00h.1',
-    'AC':'io00h.2',
-    'OV':'io00h.3'
+    'z':'io00h.0',        # flag bits
+    'c':'io00h.1',
+    'ac':'io00h.2',
+    'ov':'io00h.3'
     }
 
 i = 0
